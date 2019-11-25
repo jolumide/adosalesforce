@@ -5,14 +5,7 @@
 
 # specific path build
 pr:
-  branches:
-    include:
-    - master
-  paths:
-    include:
-    - docs/*
-    exclude:
-    - docs/README.md
+- master
 
 pool:
   vmImage: 'ubuntu-latest'
