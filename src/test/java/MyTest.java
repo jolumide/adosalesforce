@@ -7,6 +7,7 @@ import org.junit.Test;
 // another one
 //Making a pull request 
 //Making a pull request 2
+//Making a pull request 3
 public class MyTest {
     @Test
     public void test_method_1() {
