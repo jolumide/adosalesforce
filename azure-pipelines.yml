@@ -4,8 +4,8 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 # specific path build
-pr:
-- master
+#pr:
+#- master
 
 pool:
   vmImage: 'ubuntu-latest'
