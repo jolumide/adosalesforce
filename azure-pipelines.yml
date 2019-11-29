@@ -4,6 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 # specific path build
+trigger: none
 pr: none
 
 pool:
