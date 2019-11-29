@@ -9,6 +9,7 @@ import org.junit.Test;
 //Making a pull request 2
 //Making a pull request 3
 //Making pull request 4
+//New changes to trigger build
 public class MyTest {
     @Test
     public void test_method_1() {
