@@ -5,6 +5,7 @@ import org.junit.Test;
 //This is my third test
 //This is my 4th test
 // another one
+//New changes to trigger build
 public class MyTest {
     @Test
     public void test_method_1() {
