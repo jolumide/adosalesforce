@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 # specific path build
-#trigger: none
+trigger: none
 pr:
 - develop1-x
 
