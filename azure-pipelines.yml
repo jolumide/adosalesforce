@@ -6,7 +6,7 @@
 # specific path build
 #trigger: none
 pr:
-- master
+- develop1-x
 
 pool:
   vmImage: 'ubuntu-latest'
