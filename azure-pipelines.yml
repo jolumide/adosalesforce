@@ -17,5 +17,5 @@ steps:
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: 'steps.py'
+    scriptPath: 'adosalesforce/blob/master/Steps.py'
     arguments: 'olumide.akinwande@brave-otter-cxzfyw.com 0lum1dE$ 3MVG9tzQRhEbH_K1qI6QNHjgvba2AGB8vutbIyjU5j2qV_mxIcOlVwLPLaENlg.stvGj9RMExXP5gFARKEpN7  349E1065A2C3DBD73D420D353A5B7E32CA1699FA4B0D61989248880B3FFED457 "Olu Test Project" 16-12-19 0124J000000Ym6iQAC'
