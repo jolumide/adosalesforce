@@ -36,7 +36,7 @@ def get_project_id(auth_token, project_name):
             print('Error! Message: ', json_data['message'])
         exit(1)
     elif json_data['totalSize'] != 1:
-        print('Error! Message: Either no record was returned or more than one matching record is found'])
+        print('Error! Message: Either no record was returned or more than one matching record is found')
         exit(1)
     print("Matching Project Id retrieved")
     return [json_data['records']['Id'],json_data['records']['C4E_Namespace__c']] ##Confirm that this accesss works
