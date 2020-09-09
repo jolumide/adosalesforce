@@ -11,7 +11,7 @@ def authorise(client_id, client_secret, username, password):
         login_url="https://test.salesforce.com/services/oauth2/token"
         post_response = requests.post(url = login_url,params=body)#data=json.dumps(body), headers = api_headers)
         json_data = json.loads(post_response.text)
-        
+        print(json_data)
     except Exception as e:
         print("error: ",e)
         exit(1)
@@ -67,7 +67,7 @@ def create_mock_record(auth_token):
         post_url_prod="https://bpcommunity--gptdev.my.salesforce.com/services/data/v46.0/sobjects/BPG_Mock_Object__c"   
         post_response_prod = requests.post(url = post_url_prod,data=json.dumps(body_mr), headers = api_headers)
         json_data = json.loads(post_response_prod.text)
-        
+        print(json_data)
     except Exception as e:
         print("error: ",e)
         exit(1)
