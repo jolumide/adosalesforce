@@ -8,7 +8,7 @@ def authorise(client_id, client_secret, username, password):
     api_headers = {'Content-type': 'application/json'}
     body={"grant_type":"password","client_id":client_id,"client_secret":client_secret,"username":username,"password":password}
     try:
-        login_url="https://login.salesforce.com/services/oauth2/token"
+        login_url="https://test.salesforce.com/services/oauth2/token"
         post_response = requests.post(url = login_url,data=json.dumps(body), headers = api_headers)
         json_data = json.loads(post_response.text)
         
@@ -25,7 +25,7 @@ def authorise(client_id, client_secret, username, password):
 def get_project_id(auth_token, project_name):
     api_headers = {'Content-type': 'application/json', 'Authorization': 'OAuth '+auth_token}
     try:
-        query_url="https://brave-otter-cxzfyw-dev-ed.my.salesforce.com/services/data/v46.0/query/?q=SELECT+id+from+C4E_Project__c+"+"WHERE+Name+LIKE+'" + project_name.replace(' ','+')+"'"
+        query_url="https://bpcommunity--gptdev.my.salesforce.com/services/data/v46.0/query/?q=SELECT+id+from+C4E_Project__c+"+"WHERE+Name+LIKE+'" + project_name.replace(' ','+')+"'"
         get_response = requests.get(url = query_url, headers = api_headers)
         json_data = json.loads(get_response.text)
     except Exception as e:
@@ -59,7 +59,24 @@ def create_release(auth_token, proj_id, proj_namespace, release_rectyp, requeste
         exit(1)                       
     print("Release successful created")
     return json_data['id']
-    
+
+def create_mock_record(auth_token):
+    api_headers = {'Content-type': 'application/json', 'Authorization': 'OAuth '+auth_token}
+    body_mr={"BPG_Text1__c":"Text Test 1","BPG_Text12__c":"Text Test 2","BPG_Text3__c":"Text Test 3"}
+    try:
+        post_url_prod="https://bpcommunity--gptdev.my.salesforce.com.my.salesforce.com/services/data/v46.0/sobjects/BPG_Mock_Object__c"   
+        post_response_prod = requests.post(url = post_url_prod,data=json.dumps(body_prod), headers = api_headers)
+        json_data = json.loads(post_response_prod.text)
+        
+    except Exception as e:
+        print("error: ",e)
+        exit(1)
+    if post_response_prod.status_code != 200:                                                    
+        if 'message' in json_data:
+            print('Error! Message: ', json_data['message'])
+        exit(1)                       
+    print("Mock record successfully created")
+
 def create_deployments(auth_token,release_id,requested_date):
     api_headers = {'Content-type': 'application/json', 'Authorization': 'OAuth '+auth_token}
     [dd, mm, yy] = requested_date.split("-")
