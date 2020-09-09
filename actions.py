@@ -5,11 +5,11 @@ import time
 from datetime import date, timedelta
 ##Change the login url for test
 def authorise(client_id, client_secret, username, password):
-    api_headers = {'Content-type': 'application/json'}
+    #api_headers = {'Content-type': 'application/json'}
     body={"grant_type":"password","client_id":client_id,"client_secret":client_secret,"username":username,"password":password}
     try:
         login_url="https://test.salesforce.com/services/oauth2/token"
-        post_response = requests.post(url = login_url,data=json.dumps(body), headers = api_headers)
+        post_response = requests.post(url = login_url,params=body)#data=json.dumps(body), headers = api_headers)
         json_data = json.loads(post_response.text)
         
     except Exception as e:
@@ -62,10 +62,10 @@ def create_release(auth_token, proj_id, proj_namespace, release_rectyp, requeste
 
 def create_mock_record(auth_token):
     api_headers = {'Content-type': 'application/json', 'Authorization': 'OAuth '+auth_token}
-    body_mr={"BPG_Text1__c":"Text Test 1","BPG_Text12__c":"Text Test 2","BPG_Text3__c":"Text Test 3"}
+    body_mr={"BPG_Text1__c":"Text Test 1","BPG_Text2__c":"Text Test 2","BPG_Text3__c":"Text Test 3"}
     try:
-        post_url_prod="https://bpcommunity--gptdev.my.salesforce.com.my.salesforce.com/services/data/v46.0/sobjects/BPG_Mock_Object__c"   
-        post_response_prod = requests.post(url = post_url_prod,data=json.dumps(body_prod), headers = api_headers)
+        post_url_prod="https://bpcommunity--gptdev.my.salesforce.com/services/data/v46.0/sobjects/BPG_Mock_Object__c"   
+        post_response_prod = requests.post(url = post_url_prod,data=json.dumps(body_mr), headers = api_headers)
         json_data = json.loads(post_response_prod.text)
         
     except Exception as e:
