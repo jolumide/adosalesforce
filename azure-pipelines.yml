@@ -11,7 +11,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: apt-get install -y python-requests
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.6'
+
+- script: python -m pip install --upgrade pip setuptools wheel
+  displayName: 'Install tools'
+
+- script: python -m pip install requests
   displayName: 'Install requests'
 - task: PythonScript@0
   inputs:
