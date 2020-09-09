@@ -7,9 +7,6 @@
 # specific path build
 trigger: none
 
-
-
-
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -17,5 +14,5 @@ steps:
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: 'steps.py'
+    scriptPath: 'Stepscreaterecordsalesforce.py'
     arguments: 'olumide.akinwande@bp.com.community.gptdev 0lum1dE£4%2014 3MVG95AcBeaB55lVC4ph4E3buPW7Texcr7qDeNnXA47bwtTa3W0hIKb5dZf9CCnnZuvkmjQKbOYBzExCAre0N E0D79A342987B8F876EB8E7BE3A889AC49726C006E09646BF031D1DA00C5666D'
