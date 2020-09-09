@@ -105,7 +105,7 @@ def create_deployments(auth_token,release_id,requested_date):
     except Exception as e:
         print("error: ",e)
         exit(1)
-    if post_response_prod.status_code != 200:                                                    
+    if post_response_prod.status_code != 201:                                                    
         if 'message' in json_data:
             print('Error! Message: ', json_data['message'])
         exit(1)                       
