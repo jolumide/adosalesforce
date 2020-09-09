@@ -22,4 +22,4 @@ auth_token = authorise(client_id, client_secret, username, password)
 
 #Create Mock records
 
-create_mock_record(auth_token)
+#create_mock_record(auth_token)
