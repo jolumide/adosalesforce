@@ -11,6 +11,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- script: apt-get install -y python-requests
+  displayName: 'Install requests'
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
