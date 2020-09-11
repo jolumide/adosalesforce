@@ -11,8 +11,21 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- checkout: self
+  persistCredentials: true
+  
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.6'
+
+- script: python -m pip install --upgrade pip setuptools wheel
+  displayName: 'Install tools'
+
+- script: python -m pip install requests
+  displayName: 'Install requests'
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: 'steps.py'
-    arguments: 'olumide.akinwande@brave-otter-cxzfyw.com 0lum1dE$ 3MVG9tzQRhEbH_K1qI6QNHjgvba2AGB8vutbIyjU5j2qV_mxIcOlVwLPLaENlg.stvGj9RMExXP5gFARKEpN7  349E1065A2C3DBD73D420D353A5B7E32CA1699FA4B0D61989248880B3FFED457 "Olu Test Project" 16-12-19 0124J000000Ym6iQAC'
+    scriptPath: 'Stepscreaterecordsalesforce.py'
+    arguments: 'olumide.akinwande@bp.com.community.gptdev 0lum1dE£4%2014SZOuU7nzcKtKp0qewnG76fxK 3MVG95AcBeaB55lVC4ph4E3buPW7Texcr7qDeNnXA47bwtTa3W0hIKb5dZf9CCnnZuvkmjQKbOYBzExCAre0N E0D79A342987B8F876EB8E7BE3A889AC49726C006E09646BF031D1DA00C5666D'
